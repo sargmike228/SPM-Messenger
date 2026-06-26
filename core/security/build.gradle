@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace "com.sargmike228.core.security"
+    compileSdk rootProject.ext.androidCompileSdk
+
+    defaultConfig {
+        minSdk rootProject.ext.androidMinSdk
+        targetSdk rootProject.ext.androidTargetSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:${rootProject.ext.coreKtxVersion}"
+    
+    // Signal Protocol
+    implementation "org.signal:android-database-sqlcipher:4.5.6"
+    implementation "org.signal:libsignal-android:${rootProject.ext.signalProtocolVersion}"
+    
+    // Crypto
+    implementation "org.bouncycastle:bcprov-jdk15on:${rootProject.ext.bouncycastleVersion}"
+    implementation "org.bouncycastle:bcpkix-jdk15on:${rootProject.ext.bouncycastleVersion}"
+    
+    // Android Security
+    implementation "androidx.security:security-crypto:${rootProject.ext.securityVersion}"
+    
+    // Testing
+    testImplementation "junit:junit:${rootProject.ext.junitVersion}"
+}
