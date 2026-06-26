@@ -1,0 +1,23 @@
+# Ignore local files
+*.apk
+*.aab
+*.keystore
+keystore_base64.txt
+local.properties
+.gradle/
+build/
+.idea/
+*.iml
+.DS_Store
+
+# Release keystore - NEVER commit this
+release.keystore
+release_keystore.jks
+*.jks
+*.p12
+
+# Build outputs
+app/build/
+core/*/build/
+feature/*/build/
+shared/*/build/
